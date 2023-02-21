@@ -1,0 +1,9 @@
+<section class="home-page">
+  <div class="user" *ngIf="user">
+    <span>Welcome, {{ user.fullname }}!</span>
+    <span>You have {{ user.balance }} coins.</span>
+  </div>
+  <div *ngIf="bitcoinRate">
+    <span>At the moments, 1 Bitcoin equal {{ bitcoinRate }} $.</span>
+  </div>
+</section>
