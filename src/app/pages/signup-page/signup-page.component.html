@@ -1,1 +1,17 @@
-<p>signup-page works!</p>
+<section class="sign-up">
+
+    <form (ngSubmit)="onSaveUser()">
+        <label for="name">Name</label>
+        <input [(ngModel)]="username" type="text" name="username" id="username">
+
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email">
+
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone">
+
+
+        <button>Save</button>
+    </form>
+    <img src="../../../assets/imgs/back.png" class="back-btn" alt="" title="Back">
+</section>

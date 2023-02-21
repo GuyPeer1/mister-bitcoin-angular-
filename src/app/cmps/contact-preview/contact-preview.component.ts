@@ -19,6 +19,6 @@ export class ContactPreviewComponent {
 
   onEditContact(ev: MouseEvent){
     ev.stopPropagation()
-    this.router.navigate(['edit/',this.contact._id])
+    this.router.navigate(['/contact/contact/edit/',this.contact._id])
   }
 }

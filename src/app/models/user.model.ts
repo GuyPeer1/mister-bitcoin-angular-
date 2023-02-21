@@ -1,6 +1,7 @@
 export class User {
 
     public _id?: string = ''
+    public moves: any[] = []
     constructor(
         public fullname: string = '',
         public username: string = '',

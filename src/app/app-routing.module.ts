@@ -4,24 +4,31 @@ import { ContactEditComponent } from './cmps/contact-edit/contact-edit.component
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 import { ContactIndexComponent } from './pages/contact-index/contact-index.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
 import { ContactResolver } from './services/contact.resolver';
 
 const routes: Routes = [
   {
-    path: '', component: ContactIndexComponent,
+    path: 'contact', component: ContactIndexComponent,
     children: [
       {
-        path: 'edit', component: ContactEditComponent,
+        path: 'contact/edit', component: ContactEditComponent,
       },
       {
-        path: 'edit/:id', component: ContactEditComponent,
-        resolve: {contact: ContactResolver}
+        path: 'contact/edit/:id', component: ContactEditComponent,
+        resolve: { contact: ContactResolver }
       }]
   },
-  { path: 'contact/:id', component: ContactDetailsComponent },
-  { path: 'home', component: HomePageComponent },
-  { path: 'statistics', component: StatisticsPageComponent },
+  {
+    path: '', component: HomePageComponent,
+    children: [
+      {
+        path: 'signup', component: SignupPageComponent
+      }
+    ]
+  },
+  { path: 'contact/details/:id', component: ContactDetailsComponent },
   { path: 'statistics', component: StatisticsPageComponent },
 
 ];

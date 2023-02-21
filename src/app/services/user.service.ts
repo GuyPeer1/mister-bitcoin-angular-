@@ -9,6 +9,7 @@ const users = [
         "username": "ofeka25",
         "password": 123,
         "balance": 100,
+        "moves":[]
     },
     {
         "_id": "5a5ssss66ca",
@@ -16,6 +17,7 @@ const users = [
         "username": "niv",
         "password": 123,
         "balance": 100,
+        "moves":[]
     },
 ]
 
@@ -71,8 +73,26 @@ export class UserService {
             "username": "ofeka25",
             "password": 123,
             "balance": 100,
+            "moves": []
         }
         return user
     }
+    
+    public signup(name: string) {
+        const newUser = new User('Ofek Ashkenazi', name, 123, 100)
+        return this.saveLocalUser(newUser)
+    }
 
+    public saveLocalUser(user: User) {
+        let newUser = { _id: user._id ? user._id : 'x7895', fullname: user.fullname, balance: user.balance, moves: user.moves ? user.moves : [], username: user.username }
+        sessionStorage.setItem('loogedInUser', JSON.stringify(newUser))
+        return user
+    }
+
+    public getLoggedinUser() {
+        let user: null | string = sessionStorage.getItem('loogedInUser')
+        if (!user) return 
+        let loggedinUser = JSON.parse(user);
+        return loggedinUser
+    }
 }
